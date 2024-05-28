@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Read the CSV file into a DataFrame
-df = pd.read_csv("commodity_prices_filtered.csv", index_col="date", parse_dates=True, encoding='latin-1')
+df = pd.read_csv("./DATA/commodity_prices_filtered.csv", index_col="date", parse_dates=True, encoding='latin-1')
 
 # Plot oil_dubai prices against dates
 plt.figure(figsize=(15, 5))

@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from scipy.signal import find_peaks
 
 # Wczytanie danych z pliku CSV
-data = pd.read_csv('commodity_prices_filtered.csv')
+data = pd.read_csv('./DATA/commodity_prices_filtered.csv')
 
 # Ekstrakcja kolumny z datą i ceną ropy Brent
 dates = pd.to_datetime(data['date'])
