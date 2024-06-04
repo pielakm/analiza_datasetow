@@ -10,7 +10,7 @@ connection_params = {
     "host": "aplikacja-konwentowa-aplikacja-konwentowa.a.aivencloud.com",
     "port": 11334,
     "user": "piotr",
-    
+    "password": "AVNS_ntXfs4l983OUh5HbRr_",
     "db": "integracja",
     "charset": "utf8mb4",
     "cursorclass": pymysql.cursors.DictCursor,
