@@ -51,8 +51,8 @@ max_date_attacks = merged_data['attacks'].idxmax()
 min_date_attacks = merged_data['attacks'].idxmin()
 
 # Mark the maximum and minimum points on the plot for attacks
-plt.scatter(max_date_attacks, max_value_attacks, color='r', s=100, zorder=5, label=f'Max Attacks: {max_value_attacks} on {max_date_attacks.date()}')
-plt.scatter(min_date_attacks, min_value_attacks, color='g', s=100, zorder=5, label=f'Min Attacks: {min_value_attacks} on {min_date_attacks.date()}')
+plt.scatter(max_date_attacks, max_value_attacks, color='r', s=30, zorder=5, label=f'Max Attacks: {max_value_attacks} on {max_date_attacks.date()}')
+plt.scatter(min_date_attacks, min_value_attacks, color='g', s=30, zorder=5, label=f'Min Attacks: {min_value_attacks} on {min_date_attacks.date()}')
 
 # Find maximum and minimum values for oil prices
 max_value_oil = merged_data['oil_price'].max()
@@ -63,8 +63,8 @@ max_date_oil = merged_data['oil_price'].idxmax()
 min_date_oil = merged_data['oil_price'].idxmin()
 
 # Mark the maximum and minimum points on the plot for oil prices
-plt.scatter(max_date_oil, max_value_oil, color='red', s=100, zorder=5, label=f'Max Oil Price: {max_value_oil:.2f} on {max_date_oil.date()}')
-plt.scatter(min_date_oil, min_value_oil, color='green', s=100, zorder=5, label=f'Min Oil Price: {min_value_oil:.2f} on {min_date_oil.date()}')
+plt.scatter(max_date_oil, max_value_oil, color='red', s=30, zorder=5, label=f'Max Oil Price: {max_value_oil:.2f} on {max_date_oil.date()}')
+plt.scatter(min_date_oil, min_value_oil, color='green', s=30, zorder=5, label=f'Min Oil Price: {min_value_oil:.2f} on {min_date_oil.date()}')
 
 # Show legend
 plt.legend(loc='best')
