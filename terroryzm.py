@@ -35,8 +35,8 @@ max_year = attacks_by_year.idxmax()
 min_year = attacks_by_year.idxmin()
 
 # Mark the maximum and minimum points on the plot
-plt.scatter(max_year, max_value, color='r', s=100, zorder=5, label=f'Maximum: {max_value} in {max_year}')
-plt.scatter(min_year, min_value, color='g', s=100, zorder=5, label=f'Minimum: {min_value} in {min_year}')
+plt.scatter(max_year, max_value, color='r', s=30, zorder=5, label=f'Maximum: {max_value} in {max_year}')
+plt.scatter(min_year, min_value, color='g', s=30, zorder=5, label=f'Minimum: {min_value} in {min_year}')
 
 plt.tight_layout()
 plt.legend()
