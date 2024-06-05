@@ -1,43 +1,30 @@
+import xml.etree.ElementTree as ET
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
-import matplotlib.dates as mdates
 
-# Load the dataset from XML file
-data = pd.read_xml('./DATA/globalterrorismdb_filtered.xml')
+# Wczytaj dane z XML
+tree = ET.parse('./DATA/globalterrorismdb_filtered.xml')
+root = tree.getroot()
 
-# Check the first few rows to understand the structure
-print(data.head())
+# Wyodrębnij dane do DataFrame
+conflict_data = []
+for event in root.findall('event'):
+    date = event.find('date').text
+    year = date.split('-')[0]
+    conflict_data.append({'year': year})
 
-# Convert 'date' column to datetime type
-data['date'] = pd.to_datetime(data['date'], format='%Y-%m-%d', errors='coerce')
+df_conflicts = pd.DataFrame(conflict_data)
+df_conflicts['year'] = df_conflicts['year'].astype(int)
 
-# Extract year from the 'date' column and count the number of attacks per year
-attacks_by_year = data['date'].dt.year.value_counts().sort_index().astype(int)
+# Policz liczbę ataków w każdym roku
+conflict_counts = df_conflicts['year'].value_counts().sort_index().reset_index()
+conflict_counts.columns = ['year', 'num_attacks']
 
-# Plotting
-plt.figure(figsize=(10, 6))
-sns.lineplot(data=attacks_by_year, label='Data', color='blue')
-plt.title('Terrorist Attacks by Year')
-plt.xlabel('Year')
-plt.ylabel('Number of Attacks')
-
-# Set major ticks format to show every year
-plt.gca().xaxis.set_major_locator(mdates.YearLocator())
-plt.gca().xaxis.set_major_formatter(mdates.DateFormatter("%Y"))
-
-# Find maximum and minimum values
-max_value = attacks_by_year.max()
-min_value = attacks_by_year.min()
-
-# Find years for maximum and minimum values
-max_year = attacks_by_year.idxmax()
-min_year = attacks_by_year.idxmin()
-
-# Mark the maximum and minimum points on the plot
-plt.scatter(max_year, max_value, color='r', s=30, zorder=5, label=f'Maximum: {max_value} in {max_year}')
-plt.scatter(min_year, min_value, color='g', s=30, zorder=5, label=f'Minimum: {min_value} in {min_year}')
-
-plt.tight_layout()
-plt.legend()
+# Wykres liczby ataków w czasie
+plt.figure(figsize=(12, 6))
+plt.plot(conflict_counts['year'], conflict_counts['num_attacks'], marker='o')
+plt.title('Liczba ataków w czasie')
+plt.xlabel('Rok')
+plt.ylabel('Liczba ataków')
+plt.grid(True)
 plt.show()
