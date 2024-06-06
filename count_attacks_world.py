@@ -23,7 +23,7 @@ conflict_counts.columns = ['year', 'num_attacks']
 # Wykres liczby ataków w czasie
 plt.figure(figsize=(12, 6))
 plt.plot(conflict_counts['year'], conflict_counts['num_attacks'], marker='o')
-plt.title('Liczba ataków w czasie')
+plt.title('Liczba ataków w czasie na całym świecie')
 plt.xlabel('Rok')
 plt.ylabel('Liczba ataków')
 plt.grid(True)
