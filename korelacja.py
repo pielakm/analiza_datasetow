@@ -22,7 +22,7 @@ merged_data = pd.concat([attacks_by_date, oil_prices], axis=1).fillna(0)
 correlations = merged_data['attacks'].rolling(window=30).corr(merged_data['oil_price'].shift(30)).dropna()
 
 # Find the highest correlations
-highest_correlations = correlations.abs().nlargest(5)
+highest_correlations = correlations.abs().nlargest(10)
 
 for date, correlation in highest_correlations.items():
     print(f"Date of attack: {date}")
