@@ -18,14 +18,7 @@ CREATE TABLE IF NOT EXISTS global_terrorism (
     id INT AUTO_INCREMENT PRIMARY KEY,
     country_txt VARCHAR(255),
     region_txt VARCHAR(255),
-    provstate VARCHAR(255),
     city VARCHAR(255),
-    summary TEXT,
-    attacktype1_txt VARCHAR(255),
-    attacktype2_txt VARCHAR(255),
-    targtype1_txt VARCHAR(255),
-    targsubtype1_txt VARCHAR(255),
-    motive TEXT,
     date DATE,
     eventid INT
 );
@@ -43,24 +36,17 @@ root = tree.getroot()
 for i, j in zip(root.findall('event'), range(1, len(root.findall('event')) + 1)):
     country_txt = i.find('country_txt').text
     region_txt = i.find('region_txt').text
-    provstate = i.find('provstate').text
     city = i.find('city').text
-    summary = i.find('summary').text if i.find('summary') is not None else None
-    attacktype1_txt = i.find('attacktype1_txt').text
-    attacktype2_txt = i.find('attacktype2_txt').text if i.find('attacktype2_txt') is not None else None
-    targtype1_txt = i.find('targtype1_txt').text
-    targsubtype1_txt = i.find('targsubtype1_txt').text
-    motive = i.find('motive').text if i.find('motive') is not None else None
     date = i.find('date').text
     eventid = i.find('eventid').text
 
     # SQL query to insert data into database
-    data = """INSERT INTO global_terrorism (country_txt, region_txt, provstate, city, summary, attacktype1_txt, attacktype2_txt, targtype1_txt, targsubtype1_txt, motive, date, eventid)
-              VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+    data = """INSERT INTO global_terrorism (country_txt, region_txt, city, date, eventid)
+              VALUES (%s, %s, %s, %s, %s)"""
 
     # Executing cursor object
     with conn.cursor() as c:
-        c.execute(data, (country_txt, region_txt, provstate, city, summary, attacktype1_txt, attacktype2_txt, targtype1_txt, targsubtype1_txt, motive, date, eventid))
+        c.execute(data, (country_txt, region_txt, city, date, eventid))
         conn.commit()
     # print("Event No-", j, "stored successfully")
 
