@@ -3,7 +3,7 @@ warnings.filterwarnings("ignore", category=UserWarning, message="Secure coding i
 
 import tkinter as tk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from ropa_terroryzm import create_plot_ropa_terroryzm2
+from oil_price_into_attacks import create_plot_ropa_terroryzm2
 
 # Create the main window
 root = tk.Tk()
