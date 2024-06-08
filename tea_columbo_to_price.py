@@ -44,6 +44,7 @@ import matplotlib.pyplot as plt
 file_path = './DATA/commodity_prices_filtered.csv'
 data = pd.read_csv(file_path)
 
+
 def tea_columbo_to_price():
     # Convert the 'date' column to datetime format
     data['date'] = pd.to_datetime(data['date'])

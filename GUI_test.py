@@ -15,6 +15,10 @@ from sugar_eu_us_world_price import sugar_eu_us_world_price
 from sugar_us_to_attacksUS import sugar_us_to_attacksUS
 from coffee_arabica_price import coffee_arabica_price
 from coffee_robustas_price import coffee_robustas_price
+from tea_columbo_to_price import tea_columbo_to_price
+from tea_kolkata_to_price import tea_kolkata_to_price
+from tea_mombasa_to_price import tea_mombasa_to_price
+from tea_to_price import tea_to_price
 import requests
 JWT_TOKEN = ''
 def login():
@@ -88,6 +92,17 @@ def generate_coffee_arabica_price():
 def generate_coffee_robustas_price():
     plots["CoffeePriceRobustas"] = coffee_robustas_price()
 
+
+
+def generate_tea_columbo_to_price():
+    plots["TeaColumboToPrice"] = tea_columbo_to_price()
+def generate_tea_kolkata_to_price():
+    plots["TeaKolkataToPrice"] = tea_kolkata_to_price()
+def generate_tea_mombasa_to_price():
+    plots["TeaMombasaToPrice"] = tea_mombasa_to_price()
+def generate_tea_to_price():
+    plots["TeaToPrice"] = tea_to_price()
+
 # Function to show the plots
 def show_plot(fig):
     global canvas
@@ -159,6 +174,26 @@ def show_coffee_robustas_price():
         generate_coffee_robustas_price()
     show_plot(plots["CoffeePriceRobustas"])
 
+def show_tea_columbo_to_price():
+    if "TeaColumboToPrice" not in plots:
+        generate_tea_columbo_to_price()
+    show_plot(plots["TeaColumboToPrice"])
+
+def show_tea_kolkata_to_price():
+    if "TeaKolkataToPrice" not in plots:
+        generate_tea_kolkata_to_price()
+    show_plot(plots["TeaKolkataToPrice"])
+
+def show_tea_mombasa_to_price():
+    if "TeaMombasaToPrice" not in plots:
+        generate_tea_mombasa_to_price()
+    show_plot(plots["TeaMombasaToPrice"])
+
+def show_tea_to_price():
+    if "TeaToPrice" not in plots:
+        generate_tea_to_price()
+    show_plot(plots["TeaToPrice"])
+
 # Create main window
 root = tk.Tk()
 root.title("Plot Display")
@@ -177,6 +212,13 @@ buttons = [
     ("EU, US, and World Sugar Prices", show_sugar_eu_us_world_price),
     ("Arabica Coffee Prices", show_coffee_arabica_price),
     ("Robusta Coffee Prices", show_coffee_robustas_price),
+
+    ("Columbo Tea Prices", show_tea_columbo_to_price),
+    ("Kolkata Tea Prices", show_tea_kolkata_to_price),
+    ("Mombasa Tea Prices", show_tea_mombasa_to_price),
+    ("Tea Prices", show_tea_to_price),
+
+
     ("Brent Oil Price vs. Attacks in USA", show_oil_brent_to_attacksUSA),
     ("Dubai Oil Price vs. Attacks in USA", show_oil_dubai_to_attacksUSA),
     ("Oil Prices vs. Attacks in USA", show_oil_price_to_attacksUSA),
