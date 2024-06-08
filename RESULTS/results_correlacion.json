@@ -1,12 +1,12 @@
 [
     {
         "date_of_attack": "1974-10-04",
-        "correlation": 0.9447578903732282,
+        "correlation": 0.9447578903732284,
         "approximate_date_of_increase": "1974-11-18"
     },
     {
         "date_of_attack": "1974-10-05",
-        "correlation": 0.9187339048442844,
+        "correlation": 0.9187339048442846,
         "approximate_date_of_increase": "1974-11-19"
     },
     {
@@ -41,12 +41,12 @@
     },
     {
         "date_of_attack": "2007-06-01",
-        "correlation": 0.8892335901978426,
+        "correlation": 0.8892335901978412,
         "approximate_date_of_increase": "2007-07-16"
     },
     {
         "date_of_attack": "1982-10-03",
-        "correlation": 0.7816038289429973,
+        "correlation": 0.7816038289429958,
         "approximate_date_of_increase": "1982-11-17"
     }
 ]

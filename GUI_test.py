@@ -19,6 +19,7 @@ from tea_columbo_to_price import tea_columbo_to_price
 from tea_kolkata_to_price import tea_kolkata_to_price
 from tea_mombasa_to_price import tea_mombasa_to_price
 from tea_to_price import tea_to_price
+from korelacja import correlation
 import requests
 JWT_TOKEN = ''
 def login():
@@ -194,6 +195,10 @@ def show_tea_to_price():
         generate_tea_to_price()
     show_plot(plots["TeaToPrice"])
 
+def show_correlation():
+    correlation()
+    messagebox.showinfo("Correlation", "File in RESULTS directory")
+
 # Create main window
 root = tk.Tk()
 root.title("Plot Display")
@@ -225,6 +230,7 @@ buttons = [
     ("Login", login),
     ("export_to_database", export_to_database),
     ("export_to_csv", export_to_csv),
+    ("correlation", show_correlation)
 
 ]
 
