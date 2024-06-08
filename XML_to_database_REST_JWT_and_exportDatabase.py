@@ -331,7 +331,7 @@ def export_to_csv():
             data = cursor.fetchall()
 
         # Write data to CSV file
-        with open('exported_data.csv', 'w', newline='', encoding='utf-8') as csvfile:
+        with open('./RESULTS/exported_data.csv', 'w', newline='', encoding='utf-8') as csvfile:
             fieldnames = ['id', 'country_txt', 'region_txt', 'city', 'date', 'eventid']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
@@ -339,6 +339,19 @@ def export_to_csv():
                 writer.writerow(row)
 
         return jsonify({'message': 'Data exported to exported_data.csv'}), 200
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+@app.route('/count_events', methods=['GET'])
+@jwt_required()
+def count_events():
+    try:
+        # Wykonanie zapytania do bazy danych
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT COUNT(*) AS count FROM global_terrorism")
+            result = cursor.fetchone()
+
+        return jsonify({'count': result['count']}), 200
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
