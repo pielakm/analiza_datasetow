@@ -17,6 +17,8 @@ Projekt integruje dane dotyczące konfliktów zbrojnych (z Global Terrorism Data
 2. Czy można zauważyć korelację między ceną ropy naftowej a liczbą ataków terrorystycznych w danym regionie?
 3. Czy cena cukru europejskiego jest zależna od ceny cukru amerykańśkiego??
 
+Projekt zawiera skrypty napisane w języku Python do analizy danych oraz wizualizacji przy użyciu różnych zestawów danych.
+
 **Informacje o konfiguracji środowiska IDE:**
 Do uruchomienia kodu źródłowego, wymagane są następujące zależności:
 - Python 3.x
