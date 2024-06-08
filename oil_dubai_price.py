@@ -38,3 +38,5 @@ def oil_dubai_price():
     plt.legend()
     return plt
 
+# oil_dubai_price().show()
+

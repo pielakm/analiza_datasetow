@@ -34,3 +34,6 @@ def oil_brent_min_max_price():
 
     plt.tight_layout()
     return fig
+
+fig = oil_brent_min_max_price()
+plt.show()

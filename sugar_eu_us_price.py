@@ -42,3 +42,4 @@ def sugar_eu_us_price():
     plt.grid(True)
     plt.legend()
     return plt
+# sugar_eu_us_price().show()

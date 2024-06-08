@@ -5,6 +5,8 @@ from attacks_by_region import attacks_by_region
 from count_attacks_world import count_attacks_world
 from oil_brent_min_max_price import oil_brent_min_max_price
 from oil_brent_to_attacksUSA import oil_brent_to_attacksUSA
+from oil_dubai_price import oil_dubai_price
+from oil_dubai_to_attacksUSA import oil_dubai_to_attacks
 
 # Funkcje generujące wykresy
 def generate_attacks_by_region():
@@ -18,6 +20,12 @@ def generate_oil_brent_min_max_price():
 
 def generate_oil_brent_to_attack():
     plots["OilBrentToAttacksUSA"] = oil_brent_to_attacksUSA()
+
+def generate_oil_dubai_price():
+    plots["OilDubaiPrice"] = oil_dubai_price()
+
+def generate_oil_dubai_to_attacks():
+    plots["OilDubaiToAttacksUSA"] = oil_dubai_to_attacks()
 
 # Funkcja wyświetlająca wykresy po prawej stronie
 def show_plot(fig):
@@ -50,6 +58,16 @@ def show_oil_brent_to_attack():
         generate_oil_brent_to_attack()
     show_plot(plots["OilBrentToAttacksUSA"])
 
+def show_oil_dubai_price():
+    if "OilDubaiPrice" not in plots:
+        generate_oil_dubai_price()
+    show_plot(plots["OilDubaiPrice"])
+
+def show_oil_dubai_to_attacksUSA():
+    if "OilDubaiToAttacksUSA" not in plots:
+        generate_oil_dubai_to_attacks()
+    show_plot(plots["OilDubaiToAttacksUSA"])
+
 # Utworzenie głównego okna
 root = tk.Tk()
 root.title("Wyświetlanie wykresów")
@@ -70,6 +88,15 @@ button3.pack(fill=tk.X, padx=10, pady=5)
 
 button4 = ttk.Button(button_frame, text="Związek ceny ropy Brent z atakami w USA", command=show_oil_brent_to_attack)
 button4.pack(fill=tk.X, padx=10, pady=5)
+
+button5 = ttk.Button(button_frame, text="Cena ropy Dubai", command=show_oil_dubai_price)
+button4.pack(fill=tk.X, padx=10, pady=5)
+
+button6 = ttk.Button(button_frame, text="Związek ceny ropy Dubai z atakami w USA", command=show_oil_dubai_price)
+button6.pack(fill=tk.X, padx=10, pady=5)
+
+button7 = ttk.Button(button_frame, text="Związek ceny ropy Dubai oraz Brent z atakami w USA", command=show_oil_price_to_attack)
+button6.pack(fill=tk.X, padx=10, pady=5)
 
 # Utworzenie ramki po prawej stronie dla wykresów
 plot_frame = ttk.Frame(root)

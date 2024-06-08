@@ -2,29 +2,30 @@ import pandas as pd
 import json
 import matplotlib.pyplot as plt
 import xml.etree.ElementTree as ET
+
 # Function to parse dates safely
 def safe_parse_date(date_str):
     try:
         return pd.to_datetime(date_str, format='%Y-%m-%d', errors='coerce')
     except ValueError:
         return None
-# Load and process data from the XML file
-xml_file = './DATA/globalterrorismdb_filtered.xml'
-tree = ET.parse(xml_file)
-root = tree.getroot()
-
-# Extract relevant data from the XML
-data = []
-for event in root.findall('event'):
-    country = event.find('country_txt').text
-    date = event.find('date').text
-    data.append({'country_txt': country, 'date': date})
-
-# Convert to DataFrame
-terrorism_df = pd.DataFrame(data)
-
 
 def oil_price_into_attacks():
+    # Load and process data from the XML file
+    xml_file = './DATA/globalterrorismdb_filtered.xml'
+    tree = ET.parse(xml_file)
+    root = tree.getroot()
+
+    # Extract relevant data from the XML
+    data = []
+    for event in root.findall('event'):
+        country = event.find('country_txt').text
+        date = event.find('date').text
+        data.append({'country_txt': country, 'date': date})
+
+    # Convert to DataFrame
+    terrorism_df = pd.DataFrame(data)
+
     # Apply the safe_parse_date function to the 'date' column
     terrorism_df['date'] = terrorism_df['date'].apply(safe_parse_date)
     terrorism_df = terrorism_df.dropna(subset=['date'])
@@ -74,3 +75,5 @@ def oil_price_into_attacks():
     plt.title('Relationship between the prices of oil_brent, oil_dubai and the number of attacks in the United States')
     fig.legend(loc='upper left', bbox_to_anchor=(0.1,0.9))
     return plt
+
+# oil_price_into_attacks().show()

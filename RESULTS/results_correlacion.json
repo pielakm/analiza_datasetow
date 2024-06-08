@@ -1,0 +1,52 @@
+[
+    {
+        "date_of_attack": "1974-10-04",
+        "correlation": 0.9447578903732282,
+        "approximate_date_of_increase": "1974-11-18"
+    },
+    {
+        "date_of_attack": "1974-10-05",
+        "correlation": 0.9187339048442844,
+        "approximate_date_of_increase": "1974-11-19"
+    },
+    {
+        "date_of_attack": "1974-10-08",
+        "correlation": 0.9150511204875403,
+        "approximate_date_of_increase": "1974-11-22"
+    },
+    {
+        "date_of_attack": "1974-10-09",
+        "correlation": 0.9126933258379352,
+        "approximate_date_of_increase": "1974-11-23"
+    },
+    {
+        "date_of_attack": "1974-10-10",
+        "correlation": 0.9019183521339352,
+        "approximate_date_of_increase": "1974-11-24"
+    },
+    {
+        "date_of_attack": "1974-10-11",
+        "correlation": 0.900716115989041,
+        "approximate_date_of_increase": "1974-11-25"
+    },
+    {
+        "date_of_attack": "1974-10-12",
+        "correlation": 0.900716115989041,
+        "approximate_date_of_increase": "1974-11-26"
+    },
+    {
+        "date_of_attack": "1974-10-13",
+        "correlation": 0.900716115989041,
+        "approximate_date_of_increase": "1974-11-27"
+    },
+    {
+        "date_of_attack": "2007-06-01",
+        "correlation": 0.8892335901978426,
+        "approximate_date_of_increase": "2007-07-16"
+    },
+    {
+        "date_of_attack": "1982-10-03",
+        "correlation": 0.7816038289429973,
+        "approximate_date_of_increase": "1982-11-17"
+    }
+]

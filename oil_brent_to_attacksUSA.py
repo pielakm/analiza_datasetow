@@ -3,6 +3,13 @@ import json
 import matplotlib.pyplot as plt
 import xml.etree.ElementTree as ET
 
+# Function to parse dates safely
+def safe_parse_date(date_str):
+    try:
+        return pd.to_datetime(date_str, format='%Y-%m-%d', errors='coerce')
+    except ValueError:
+        return None
+
 def oil_brent_to_attacksUSA():
     # Load and process data from the XML file
     xml_file = './DATA/globalterrorismdb_filtered.xml'
@@ -18,13 +25,6 @@ def oil_brent_to_attacksUSA():
 
     # Convert to DataFrame
     terrorism_df = pd.DataFrame(data)
-
-    # Function to parse dates safely
-    def safe_parse_date(date_str):
-        try:
-            return pd.to_datetime(date_str, format='%Y-%m-%d', errors='coerce')
-        except ValueError:
-            return None
 
     # Apply the safe_parse_date function to the 'date' column
     terrorism_df['date'] = terrorism_df['date'].apply(safe_parse_date)
@@ -46,9 +46,8 @@ def oil_brent_to_attacksUSA():
     commodity_df['date'] = pd.to_datetime(commodity_df['date'])
 
     # Filter oil prices and group by year
-    # Filter oil prices and group by year
-    oil_df = commodity_df[['date', 'oil_brent']]
-    oil_df['year'] = pd.to_datetime(oil_df['date']).dt.year
+    oil_df = commodity_df[['date', 'oil_brent']].copy()
+    oil_df['year'] = oil_df['date'].dt.year
     oil_df = oil_df.groupby('year').mean().reset_index()
 
     # Merge datasets on the basis of year
@@ -75,3 +74,7 @@ def oil_brent_to_attacksUSA():
     plt.title('Relationship between the price of oil_brent and the number of attacks in the United States')
     fig.legend(loc='upper left', bbox_to_anchor=(0.1,0.9))
     return fig
+
+fig = oil_brent_to_attacksUSA()
+plt.show()
+

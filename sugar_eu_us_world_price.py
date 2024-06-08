@@ -1,6 +1,7 @@
 import json
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 def sugar_eu_us_world_price():
@@ -22,3 +23,6 @@ def sugar_eu_us_world_price():
     plt.legend()
     plt.grid(True)
     return plt
+# sugar_eu_us_world_price().show()
+
+
