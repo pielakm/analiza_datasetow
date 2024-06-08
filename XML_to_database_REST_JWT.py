@@ -227,7 +227,7 @@ db_config = {
 conn = pymysql.connect(**db_config)
 
 # Konfiguracja JWT
-app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'  # Zmień na swój własny klucz tajny
+app.config['JWT_SECRET_KEY'] = 'SecretKey1012577937423573498527345845983448538322'  # Zmień na swój własny klucz tajny
 jwt = JWTManager(app)
 
 # Tworzenie tabeli, jeśli nie istnieje
@@ -253,17 +253,38 @@ def set_isolation_level(conn, level):
     conn.commit()
 
 # Endpoint do logowania
+# @app.route('/login', methods=['POST'])
+# def login():
+#     username = request.json.get('username', None)
+#     password = request.json.get('password', None)
+
+#     # Proste sprawdzanie użytkownika (tylko dla demonstracji, w rzeczywistości użyj bazy danych)
+#     if username != 'root' or password != '':
+#         return jsonify({"msg": "Bad username or password"}), 401
+
+#     access_token = create_access_token(identity=username)
+#     return jsonify(access_token=access_token)
 @app.route('/login', methods=['POST'])
 def login():
-    username = request.json.get('username', None)
-    password = request.json.get('password', None)
+    try:
+        data = request.get_json()
+        if data is None:
+            raise ValueError("No JSON data received")
 
-    # Proste sprawdzanie użytkownika (tylko dla demonstracji, w rzeczywistości użyj bazy danych)
-    if username != 'root' or password != '':
-        return jsonify({"msg": "Bad username or password"}), 401
+        username = data.get('username', None)
+        password = data.get('password', None)
 
-    access_token = create_access_token(identity=username)
-    return jsonify(access_token=access_token)
+        # Simple user check (for demonstration purposes, use a database in real applications)
+        if username != 'root' or password != '':
+            return jsonify({"msg": "Bad username or password"}), 401
+
+        access_token = create_access_token(identity=username)
+        return jsonify(access_token=access_token)
+
+    except ValueError as e:
+        return jsonify({"msg": str(e)}), 400
+    except Exception as e:
+        return jsonify({"msg": "Failed to decode JSON object: " + str(e)}), 400
 
 # Endpoint do ładowania danych z XML, wymaga uwierzytelnienia
 @app.route('/load_from_xml', methods=['POST'])
