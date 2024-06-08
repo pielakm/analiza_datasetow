@@ -21,9 +21,9 @@ plt.plot(tea_data['date'], tea_data['tea_mombasa'], marker='o', linestyle='-', l
 plt.legend()
 
 # Dodanie tytułu i etykiet osi
-plt.title('Ceny różnych rodzajów herbat w czasie')
-plt.xlabel('Data')
-plt.ylabel('Cena herbaty')
+plt.title('Prices of Different Types of Tea Over Time')
+plt.xlabel('Date')
+plt.ylabel('Price of Tea')
 plt.grid(True)
 
 # Wyświetlenie wykresu

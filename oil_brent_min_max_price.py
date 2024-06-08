@@ -18,16 +18,16 @@ def oil_brent_min_max_price():
     fig, ax = plt.subplots(figsize=(14, 7))
 
     # Rysowanie wykresu
-    ax.plot(dates, oil_prices, label='Cena ropy Brent')
+    ax.plot(dates, oil_prices, label='Brent Oil Price')
 
     # Dodanie lokalnych maksimów i minimów
-    ax.plot(dates[peaks], oil_prices[peaks], 'r^', label='Lokalne maksima')
-    ax.plot(dates[troughs], oil_prices[troughs], 'gv', label='Lokalne minima')
+    ax.plot(dates[peaks], oil_prices[peaks], 'r^', label='Local Maxima')
+    ax.plot(dates[troughs], oil_prices[troughs], 'gv', label='Local Minima')
 
     # Dodanie tytułu i etykiet osi
-    ax.set_title('Cena ropy Brent z lokalnymi maksimami i minimami')
-    ax.set_xlabel('Data')
-    ax.set_ylabel('Cena (USD)')
+    ax.set_title('Brent Oil Price with Local Maxima and Minima')
+    ax.set_xlabel('Date')
+    ax.set_ylabel('Price (USD)')
     ax.legend()
     ax.grid(True)
 

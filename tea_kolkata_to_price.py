@@ -29,9 +29,9 @@ plt.text(max_date, max_price, f'{max_price:.2f}', fontsize=12, verticalalignment
 plt.scatter(min_date, min_price, color='g', label=f'Min Price: {min_price} on {min_date.date()}')
 plt.text(min_date, min_price, f'{min_price:.2f}', fontsize=12, verticalalignment='top', color='g')
 
-plt.title('Cena Tea Kolbata w czasie')
-plt.xlabel('Data')
-plt.ylabel('Cena Tea Kolbata')
+plt.title('Price of Tea Kolkata Over Time')
+plt.xlabel('Date')
+plt.ylabel('Price of Tea Kolkata')
 plt.legend()
 plt.grid(True)
 plt.show()

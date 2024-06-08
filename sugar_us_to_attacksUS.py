@@ -52,18 +52,18 @@ def sugar_us_to_attacksUS():
 
     color = 'tab:blue'
     ax1.set_xlabel('Data')
-    ax1.set_ylabel('Cena sugar_us', color=color)
+    ax1.set_ylabel('Price of Sugar US', color=color)
     ax1.plot(merged_df['date'], merged_df['sugar_us'], color=color)
     ax1.tick_params(axis='y', labelcolor=color)
 
     ax2 = ax1.twinx()
     color = 'tab:red'
-    ax2.set_ylabel('Liczba ataków', color=color)
+    ax2.set_ylabel('Number of Attacks', color=color)
     ax2.bar(merged_df['date'], merged_df['attack_count'], color=color, alpha=0.6)
     ax2.tick_params(axis='y', labelcolor=color)
 
     fig.tight_layout()
-    plt.title('Zależność ceny sugar_us do liczby ataków w United States')
+    plt.title('Relationship Between Sugar US Price and Number of Attacks in the United States')
     return fig
 
 

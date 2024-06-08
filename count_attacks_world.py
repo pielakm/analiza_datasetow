@@ -27,9 +27,9 @@ def count_attacks_world():
 
     # Wykres liczby ataków w czasie
     ax.plot(conflict_counts['year'], conflict_counts['num_attacks'], marker='o')
-    ax.set_title('Liczba ataków w czasie na całym świecie')
-    ax.set_xlabel('Rok')
-    ax.set_ylabel('Liczba ataków')
+    ax.set_title('Number of Attacks Over Time Worldwide')
+    ax.set_xlabel('Year')
+    ax.set_ylabel('Number of Attacks')
     ax.grid(True)
 
     plt.tight_layout()
