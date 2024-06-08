@@ -29,7 +29,6 @@
 
 #     # Pokaż wykres
 #     return plt
-
 import pandas as pd
 import json
 import matplotlib.pyplot as plt
@@ -47,20 +46,19 @@ def coffee_arabica_price():
     # Sort the data by date
     commodity_df = commodity_df.sort_values(by='date')
 
+    # Create a Figure
+    fig, ax = plt.subplots(figsize=(10, 6))
+
     # Plotting
-    plt.figure(figsize=(10, 6))
-    plt.plot(commodity_df['date'], commodity_df['coffee_arabica'], marker='o', linestyle='-', color='b')
+    ax.plot(commodity_df['date'], commodity_df['coffee_arabica'], marker='o', linestyle='-', color='b')
 
     # Add title and axis labels
-    plt.title('Arabica Coffee Price Over Time')
-    plt.xlabel('Date')
-    plt.ylabel('Arabica Coffee Price ($ per lb)')
+    ax.set_title('Arabica Coffee Price Over Time')
+    ax.set_xlabel('Date')
+    ax.set_ylabel('Arabica Coffee Price ($ per lb)')
 
     # Set grid settings
-    plt.grid(True)
+    ax.grid(True)
 
-    # Show the plot
-    plt.show()
-
-# Call the function to execute the code
-coffee_arabica_price()
+    # Return the Figure object
+    return fig

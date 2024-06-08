@@ -3,13 +3,15 @@ import json
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
 # Function to parse dates safely
 def safe_parse_date(date_str):
     try:
         return pd.to_datetime(date_str, format='%Y-%m-%d', errors='coerce')
     except ValueError:
         return None
-    
+
+
 def sugar_us_to_attacksUS():
     # Wczytywanie i przetwarzanie danych z pliku XML
     tree = ET.parse('./DATA/globalterrorismdb_filtered.xml')
@@ -62,11 +64,6 @@ def sugar_us_to_attacksUS():
 
     fig.tight_layout()
     plt.title('Zależność ceny sugar_us do liczby ataków w United States')
-    return plt
-
-# fig = sugar_us_into_attacksUS()
-# plt.show()
-
-
+    return fig
 
 

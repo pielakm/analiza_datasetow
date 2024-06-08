@@ -75,6 +75,4 @@ def oil_brent_min_max_price():
     plt.tight_layout()
     return fig
 
-# Remove the lines that generate and show the plot on import
-# fig = oil_brent_min_max_price()
-# plt.show()
+

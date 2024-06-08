@@ -75,6 +75,5 @@ def oil_brent_to_attacksUSA():
     fig.legend(loc='upper left', bbox_to_anchor=(0.1,0.9))
     return fig
 
-fig = oil_brent_to_attacksUSA()
-plt.show()
+
 

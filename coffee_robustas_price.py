@@ -83,27 +83,26 @@ def coffee_robustas_price():
     # Sort the data by date
     commodity_df = commodity_df.sort_values(by='date')
 
+    # Create a Figure
+    fig, ax = plt.subplots(figsize=(10, 6))
+
     # Plotting
-    plt.figure(figsize=(10, 6))
-    plt.plot(commodity_df['date'], commodity_df['coffee_robustas'], marker='o', linestyle='-', color='b')
+    ax.plot(commodity_df['date'], commodity_df['coffee_robustas'], marker='o', linestyle='-', color='b')
 
     # Add title and axis labels
-    plt.title('Robusta Coffee Price Over Time')
-    plt.xlabel('Date')
-    plt.ylabel('Robusta Coffee Price ($ per lb)')
+    ax.set_title('Robusta Coffee Price Over Time')
+    ax.set_xlabel('Date')
+    ax.set_ylabel('Robusta Coffee Price ($ per lb)')
 
     # Set grid settings
-    plt.grid(True)
+    ax.grid(True)
 
     # Add minimum and maximum prices to the plot
     min_price = commodity_df['coffee_robustas'].min()
     max_price = commodity_df['coffee_robustas'].max()
-    plt.axhline(y=min_price, color='r', linestyle='--', label=f'Min Price: ${min_price:.2f}')
-    plt.axhline(y=max_price, color='g', linestyle='--', label=f'Max Price: ${max_price:.2f}')
-    plt.legend()
+    ax.axhline(y=min_price, color='r', linestyle='--', label=f'Min Price: ${min_price:.2f}')
+    ax.axhline(y=max_price, color='g', linestyle='--', label=f'Max Price: ${max_price:.2f}')
+    ax.legend()
 
-    # Show the plot
-    plt.show()
-
-# Call the function to execute the code
-coffee_robustas_price()
+    # Return the Figure object
+    return fig

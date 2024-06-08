@@ -76,11 +76,11 @@
 #     return plt
 
 # # oil_dubai_to_attacks().show()
-
 import pandas as pd
 import json
 import matplotlib.pyplot as plt
 import xml.etree.ElementTree as ET
+
 
 # Function to parse dates safely
 def safe_parse_date(date_str):
@@ -88,6 +88,7 @@ def safe_parse_date(date_str):
         return pd.to_datetime(date_str, format='%Y-%m-%d', errors='coerce')
     except ValueError:
         return None
+
 
 def oil_dubai_to_attacksUSA():
     # Load and process data from the XML file
@@ -151,10 +152,10 @@ def oil_dubai_to_attacksUSA():
 
     fig.tight_layout()
     plt.title('Relationship between the price of oil_dubai and the number of attacks in the United States')
-    fig.legend(loc='upper left', bbox_to_anchor=(0.1,0.9))
-    plt.show()
+    fig.legend(loc='upper left', bbox_to_anchor=(0.1, 0.9))
 
-# Call the function to execute the code
-oil_dubai_to_attacksUSA()
+    # Return the Figure object
+    return fig
+
 
 

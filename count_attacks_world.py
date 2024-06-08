@@ -34,5 +34,3 @@ def count_attacks_world():
 
     plt.tight_layout()
     return fig
-# fig = count_attacks_world()
-# plt.show()

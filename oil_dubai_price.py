@@ -39,12 +39,10 @@
 #     return plt
 
 # # oil_dubai_price().show()
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.dates as mdates
-
 
 def oil_dubai_price():
     # Read the CSV file into a DataFrame
@@ -83,4 +81,3 @@ def oil_dubai_price():
 
     # Return the Figure object
     return fig
-

@@ -38,18 +38,15 @@ def sugar_eu_us_world_price():
     df_prices['date'] = pd.to_datetime(df_prices['date'])
 
     # Plot sugar prices in different regions over time
-    plt.figure(figsize=(12, 6))
-    plt.plot(df_prices['date'], df_prices['sugar_eu'], marker='o', label='Sugar EU')
-    plt.plot(df_prices['date'], df_prices['sugar_us'], marker='o', label='Sugar US')
-    plt.plot(df_prices['date'], df_prices['sugar_world'], marker='o', label='Sugar World')
-    plt.title('Sugar Prices in Different Regions Over Time')
-    plt.xlabel('Date')
-    plt.ylabel('Price')
-    plt.legend()
-    plt.grid(True)
-    plt.show()
+    fig, ax = plt.subplots(figsize=(12, 6))
+    ax.plot(df_prices['date'], df_prices['sugar_eu'], marker='o', label='Sugar EU')
+    ax.plot(df_prices['date'], df_prices['sugar_us'], marker='o', label='Sugar US')
+    ax.plot(df_prices['date'], df_prices['sugar_world'], marker='o', label='Sugar World')
+    ax.set_title('Sugar Prices in Different Regions Over Time')
+    ax.set_xlabel('Date')
+    ax.set_ylabel('Price')
+    ax.legend()
+    ax.grid(True)
 
-# Call the function to execute the code
-sugar_eu_us_world_price()
-
+    return fig
 
