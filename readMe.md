@@ -9,13 +9,13 @@
 - Python (pandas, matplotlib, Flask)
 - MySQL
 - JWT (do uwierzytelniania i autoryzacji)
-- Aiven (serwer relacyjnej bazy danych)
+- Aiven (serwer relacyjnej bazy danych) oraz phpMyAdmin przechowujący lokalną bazę danych
 
 **Opis projektu:** 
 Projekt integruje dane dotyczące konfliktów zbrojnych (z Global Terrorism Database) z cenami surowców (z pliku JSON). Aplikacja umożliwia analizę zależności między konfliktami zbrojnymi a cenami surowców na przestrzeni lat. Przykładowe pytania, na które można znaleźć odpowiedzi przy użyciu aplikacji:
 1. Jak zmieniała się cena ropy Brent w okresie zwiększonej aktywności terrorystycznej?
 2. Czy można zauważyć korelację między ceną ropy naftowej a liczbą ataków terrorystycznych w danym regionie?
-3. Czy cena cukru europejskiego jest zależna od ceny cukru amerykańśkiego??
+3. Czy cena cukru europejskiego jest zależna od ceny cukru amerykańskiego??
 
 Projekt zawiera skrypty napisane w języku Python do analizy danych oraz wizualizacji przy użyciu różnych zestawów danych.
 
