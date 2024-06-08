@@ -49,7 +49,7 @@ def oil_dubai_to_attacksUSA():
     commodity_df['date'] = pd.to_datetime(commodity_df['date'])
 
     # Filter oil prices and group by year
-    oil_df = commodity_df[['date', 'oil_dubai']]
+    oil_df = commodity_df[['date', 'oil_dubai']].copy()
     oil_df['year'] = oil_df['date'].dt.year
     oil_df = oil_df.groupby('year').mean().reset_index()
 
