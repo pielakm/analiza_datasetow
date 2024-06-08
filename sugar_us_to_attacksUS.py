@@ -10,7 +10,7 @@ def safe_parse_date(date_str):
     except ValueError:
         return None
     
-def sugar_us_into_attacksUS():
+def sugar_us_to_attacksUS():
     # Wczytywanie i przetwarzanie danych z pliku XML
     tree = ET.parse('./DATA/globalterrorismdb_filtered.xml')
     root = tree.getroot()

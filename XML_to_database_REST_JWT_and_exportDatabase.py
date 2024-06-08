@@ -211,6 +211,7 @@ from flask import Flask, jsonify, request
 import pymysql
 import xml.etree.ElementTree as ET
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required
+import csv
 
 app = Flask(__name__)
 
@@ -319,6 +320,27 @@ def load_from_xml():
 
     except Exception as e:
         conn.rollback()
+        return jsonify({'error': str(e)}), 500
+@app.route('/export_to_csv', methods=['GET'])
+@jwt_required()
+def export_to_csv():
+    try:
+        # Select data from the database
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT * FROM global_terrorism")
+            data = cursor.fetchall()
+
+        # Write data to CSV file
+        with open('exported_data.csv', 'w', newline='', encoding='utf-8') as csvfile:
+            fieldnames = ['id', 'country_txt', 'region_txt', 'city', 'date', 'eventid']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            for row in data:
+                writer.writerow(row)
+
+        return jsonify({'message': 'Data exported to exported_data.csv'}), 200
+
+    except Exception as e:
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
